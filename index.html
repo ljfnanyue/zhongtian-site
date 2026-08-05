@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--
+  中天国际物流 · 获客落地页
+  =====================================================
+  上线前需要替换的占位内容（搜索 "占位" 即可找到）：
+    1. 电话 13922112114（已填）
+    2. 微信号 13922112114（已填，与手机号同号）
+    3. qr.png                  → 你的微信二维码图片（放到本目录，文件名 qr.png）
+    4. 公司全称 → 按实际修改（电话/微信/二维码/地址均已填）
+  部署方式见 site/README.md（GitHub Pages 免费托管）
+  =====================================================
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中天国际物流 | 中欧班列 · 二手车出口 · 中东非洲东南亚专线 · 双清包税</title>
+<meta name="description" content="中天国际物流，广州出口物流专家：中欧班列、二手车出口、买单报关，中东/非洲/东南亚海运空运专线，门到门双清包税。为中国出口商提供拖车、报关、订舱一条龙服务。珠三角上门取货，一手价格，24小时在线报价。">
+<meta name="keywords" content="广州货代,广州国际物流,中欧班列,二手车出口,买单报关,中东专线,非洲专线,东南亚专线,双清包税,中天物流">
+<style>
+  :root{
+    --navy:#0b2a4a; --navy2:#123c6e; --orange:#ff6a00; --bg:#f5f7fa;
+    --text:#22303e; --muted:#5c6b7a; --line:#e3e8ef; --green:#0d8a4e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1b4f8f 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.05);}
+  .hero::before{content:"";position:absolute;left:-60px;bottom:-100px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.04);}
+  .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 14px;font-size:13px;margin-bottom:16px;}
+  .hero h1{font-size:34px;line-height:1.3;margin-bottom:14px;}
+  .hero h1 span{color:var(--orange);}
+  .hero p.sub{font-size:16px;color:#c9d8ea;max-width:620px;margin-bottom:26px;}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;transition:.2s;border:none;cursor:pointer;}
+  .btn-tel{background:var(--orange);color:#fff;}
+  .btn-tel:hover{background:#e55f00;}
+  .btn-wx{background:#fff;color:var(--navy);}
+  .btn-wx:hover{background:#eef3f9;}
+  .hero .mini{font-size:13px;color:#9db4cc;margin-top:18px;}
+  .hero .mini b{color:#fff;}
+
+  /* 数据条 */
+  .stats{background:#fff;border-bottom:1px solid var(--line);}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:22px 20px;text-align:center;}
+  .stats .num{font-size:24px;font-weight:700;color:var(--navy);}
+  .stats .lab{font-size:13px;color:var(--muted);}
+
+  section{padding:48px 0;}
+  h2.sec{font-size:26px;text-align:center;margin-bottom:8px;color:var(--navy);}
+  p.sec-sub{text-align:center;color:var(--muted);margin-bottom:32px;font-size:15px;}
+
+  /* 服务卡片 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;transition:.2s;}
+  .card:hover{box-shadow:0 8px 24px rgba(11,42,74,.10);transform:translateY(-2px);}
+  .card .ico{font-size:30px;margin-bottom:10px;}
+  .card h3{font-size:17px;margin-bottom:6px;color:var(--navy);}
+  .card p{font-size:14px;color:var(--muted);}
+
+  /* 优势 */
+  .adv{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .adv .grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+  .adv .item{text-align:center;padding:10px;}
+  .adv .item .ico{font-size:28px;}
+  .adv .item h4{font-size:16px;margin:8px 0 4px;color:var(--navy);}
+  .adv .item p{font-size:13px;color:var(--muted);}
+
+  /* 流程 */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;text-align:center;}
+  .flow .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 10px;}
+  .flow .n{width:30px;height:30px;line-height:30px;border-radius:50%;background:var(--navy);color:#fff;margin:0 auto 8px;font-weight:700;}
+  .flow .t{font-size:14px;font-weight:600;}
+  .flow .d{font-size:12px;color:var(--muted);margin-top:4px;}
+
+  /* 联系方式 + 表单 */
+  .contact{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;}
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .contact h2.sec{color:#fff;text-align:left;}
+  .contact .left p{color:#c9d8ea;font-size:15px;margin-bottom:22px;}
+  .contact .ways{display:flex;flex-direction:column;gap:14px;}
+  .way{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px;}
+  .way .ico{font-size:24px;}
+  .way .k{font-size:12px;color:#9db4cc;}
+  .way .v{font-size:18px;font-weight:700;color:#fff;}
+  .qrbox{text-align:center;}
+  .qrbox img{width:170px;height:170px;border-radius:12px;background:#fff;padding:8px;margin:0 auto 8px;}
+  .qrbox .tip{font-size:13px;color:#9db4cc;}
+  .form{background:#fff;color:var(--text);border-radius:16px;padding:26px;}
+  .form h3{font-size:19px;margin-bottom:4px;color:var(--navy);}
+  .form .sub{font-size:13px;color:var(--muted);margin-bottom:18px;}
+  .form label{display:block;font-size:13px;color:var(--muted);margin:12px 0 4px;}
+  .form input,.form select,.form textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:8px;font-size:15px;background:#fbfcfe;}
+  .form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--orange);border-color:transparent;}
+  .form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .form .btn{width:100%;justify-content:center;margin-top:18px;}
+  .form .result{margin-top:14px;display:none;}
+  .form .result textarea{width:100%;height:84px;font-size:14px;resize:none;margin-bottom:8px;}
+  .form .result .copy{background:#eef3f9;color:var(--navy);border:1px solid var(--line);}
+  .form .result .ok{color:var(--green);font-size:13px;margin-top:6px;}
+
+  /* 底部悬浮（手机） */
+  .sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:none;z-index:99;padding:10px 16px;gap:12px;}
+  .sticky .btn{flex:1;justify-content:center;padding:12px 10px;font-size:15px;}
+
+  footer{background:var(--navy);color:#9db4cc;text-align:center;padding:28px 20px 90px;font-size:13px;}
+  footer b{color:#fff;}
+  footer .sep{color:#3f5c7d;margin:0 8px;}
+
+  @media(max-width:768px){
+    .hero{padding:40px 0 48px;}
+    .hero h1{font-size:26px;}
+    .hero .cta .btn{flex:1;justify-content:center;}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);}
+    .flow{grid-template-columns:repeat(2,1fr);}
+    .contact .wrap{grid-template-columns:1fr;}
+    .form .row{grid-template-columns:1fr;}
+    .sticky{display:flex;}
+    footer{padding-bottom:110px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== Hero ========== -->
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">🚂 广州 · 中欧班列 · 二手车出口 · 一手庄家价</span>
+    <h1>中天国际物流<br><span>中东 · 非洲 · 东南亚，门到门双清包税</span></h1>
+    <p class="sub">中欧班列 / 二手车出口 / 买单报关 / 中东·非洲·东南亚国际物流 · 拖车、报关、订舱一条龙。为中国出口商省心出货，24 小时在线报价。</p>
+    <div class="cta">
+      <a class="btn btn-tel" href="tel:13922112114">📞 13922112114</a>
+      <button class="btn btn-wx" onclick="copyWx()">💬 加微信询价</button>
+    </div>
+    <p class="mini">微信号：<b>13922112114</b>（点击上方按钮一键复制，或直接扫码加好友）</p>
+  </div>
+</header>
+
+<!-- ========== 数据条 ========== -->
+<div class="stats">
+  <div class="wrap">
+    <div><div class="num">20+</div><div class="lab">合作国家/地区</div></div>
+    <div><div class="num">5000+</div><div class="lab">年出货票数</div></div>
+    <div><div class="num">98.6%</div><div class="lab">准点出运率</div></div>
+    <div><div class="num">7×24h</div><div class="lab">在线响应</div></div>
+  </div>
+</div>
+
+<!-- ========== 服务 ========== -->
+<section id="service">
+  <div class="wrap">
+    <h2 class="sec">我们能做什么</h2>
+    <p class="sec-sub">为中国出口商提供拖车、报关、订舱一条龙服务，全程不用你操心</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🚂</div><h3>中欧班列</h3><p>中国—欧洲铁路运输，途经俄罗斯、波兰、德国，稳定时效，重货大货首选。</p></div>
+      <div class="card"><div class="ico">🚗</div><h3>二手车出口</h3><p>二手车出口专项服务：手续代办、装柜、报关、海运门到门，中东/非洲/东南亚均可出。</p></div>
+      <div class="card"><div class="ico">🧾</div><h3>买单报关</h3><p>无进出口权也能出货，正规买单报关，单证齐全，省心合规。</p></div>
+      <div class="card"><div class="ico">🛳️</div><h3>中东·非洲·东南亚专线</h3><p>海运/空运专线，优势航线直签，双清包税到门，报价即总价。</p></div>
+      <div class="card"><div class="ico">📦</div><h3>门到门双清包税</h3><p>包清关、包关税、派送到门，无隐形费用，客户只等收货。</p></div>
+      <div class="card"><div class="ico">🚚</div><h3>拖车·报关·订舱一条龙</h3><p>拖车上门提货、报关订舱全程代办，广州/佛山/东莞/深圳当天提货。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 优势 ========== -->
+<section class="adv">
+  <div class="wrap">
+    <h2 class="sec">为什么选中天</h2>
+    <p class="sec-sub">货代很多，靠谱的难找。我们靠这些留住客户</p>
+    <div class="grid">
+      <div class="item"><div class="ico">💰</div><h4>一手价格</h4><p>船东/航司直签，报价实在，不玩低开高走</p></div>
+      <div class="item"><div class="ico">🛡️</div><h4>丢件必赔</h4><p>货物异常主动报告，按条款先行赔付</p></div>
+      <div class="item"><div class="ico">🧠</div><h4>通关能力强</h4><p>敏感货、疑难货有成熟方案，少走弯路</p></div>
+      <div class="item"><div class="ico">📲</div><h4>全程可视</h4><p>从提货到签收，每个节点主动同步</p></div>
+      <div class="item"><div class="ico">⏱️</div><h4>24h 响应</h4><p>业务员手机不离手，询价秒回</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 流程 ========== -->
+<section>
+  <div class="wrap">
+    <h2 class="sec">合作流程</h2>
+    <p class="sec-sub">拖车、报关、订舱一条龙，最快当天出货</p>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><div class="t">询价</div><div class="d">告诉我们货物和目的地</div></div>
+      <div class="step"><div class="n">2</div><div class="t">方案报价</div><div class="d">30 分钟内出方案和报价</div></div>
+      <div class="step"><div class="n">3</div><div class="t">拖车报关订舱</div><div class="d">上门取货，报关订舱全程代办</div></div>
+      <div class="step"><div class="n">4</div><div class="t">全程跟踪</div><div class="d">节点主动同步到门到门签收</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 联系方式 ========== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="left">
+      <h2 class="sec">联系我们，马上报价</h2>
+      <p>发什么货、去哪、多急，直接说，我们给你最省钱的方案。</p>
+      <div class="ways">
+        <div class="way"><span class="ico">📞</span><div><div class="k">业务电话（微信同号）</div><div class="v">13922112114</div></div></div>
+        <div class="way"><span class="ico">💬</span><div><div class="k">微信号</div><div class="v">13922112114</div></div></div>
+        <div class="way"><span class="ico">📍</span><div><div class="k">公司地址</div><div class="v">广州市海珠区江南大道中180号富力天域中心3508室</div></div></div>
+      </div>
+      <div class="qrbox" style="margin-top:20px;">
+        <img src="qr.png" alt="微信二维码" onerror="this.outerHTML='<div class=&quot;qrbox&quot; style=&quot;margin-top:20px;&quot;><div style=&quot;background:#fff;border-radius:12px;padding:14px;display:inline-block;color:var(--navy);font-size:15px;font-weight:700;&quot;>微信：13922112114<br><span style=&quot;font-weight:400;font-size:12px;color:var(--muted);&quot;>（二维码图片放 site/qr.png 后自动显示）</span></div></div>'">
+        <div class="tip">长按识别二维码，直接加微信询价</div>
+      </div>
+    </div>
+    <div class="form">
+      <h3>免费获取报价方案</h3>
+      <div class="sub">留下信息，30 分钟内给你最优价格方案</div>
+      <form onsubmit="return genMsg(event)">
+        <label>您的称呼 *</label>
+        <input type="text" id="f_name" placeholder="怎么称呼您" required>
+        <label>联系电话 *</label>
+        <input type="tel" id="f_phone" placeholder="方便我们电话联系您" required>
+        <label>微信号（选填）</label>
+        <input type="text" id="f_wx" placeholder="直接加您微信发报价单">
+        <div class="row">
+          <div>
+            <label>货物类型</label>
+            <select id="f_goods">
+              <option>电子/电器</option><option>纺织品/服装</option><option>家具/建材</option>
+              <option>机械/五金</option><option>汽配</option><option>汽车/二手车</option><option>化妆品/日化</option>
+              <option>其他（在备注写）</option>
+            </select>
+          </div>
+          <div>
+            <label>目的国家/地区</label>
+            <select id="f_dest">
+              <option>中东</option><option>非洲</option><option>东南亚</option><option>欧洲（中欧班列）</option>
+              <option>美国</option><option>俄罗斯</option><option>中亚</option><option>其他</option>
+            </select>
+          </div>
+        </div>
+        <label>预估重量（选填）</label>
+        <input type="text" id="f_weight" placeholder="如：500kg 或 3 个立方">
+        <label>备注（选填）</label>
+        <textarea id="f_note" rows="2" placeholder="货品名、时效要求、是否带电等"></textarea>
+        <button type="submit" class="btn btn-tel">生成询价信息 →</button>
+        <div class="result" id="f_result">
+          <textarea id="f_msg" readonly></textarea>
+          <div style="display:flex;gap:10px;">
+            <button type="button" class="copy" onclick="copyMsg()">复制询价内容</button>
+            <a class="btn btn-tel" id="f_tel" style="flex:1;" href="tel:13922112114">📞 直接打电话</a>
+          </div>
+          <div class="ok">✅ 已生成！复制内容发给微信 13922112114，或直接电话联系</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 底部悬浮（手机端） -->
+<div class="sticky">
+  <a class="btn btn-tel" href="tel:13922112114">📞 打电话</a>
+  <button class="btn btn-wx" onclick="copyWx()">💬 加微信</button>
+</div>
+
+<footer>
+  <b>广州中天跨境供应链有限公司</b><br>
+  主营：中欧班列 · 二手车出口 · 买单报关 · 中东/非洲/东南亚专线 · 门到门双清包税<br>
+  <span class="sep">|</span>业务电话：13922112114<span class="sep">|</span>微信：13922112114<span class="sep">|</span>广州市海珠区江南大道中180号富力天域中心3508室<br>
+  <br>© 2008-2026 中天国际物流 · 为中国出口商提供拖车、报关、订舱一条龙服务
+</footer>
+
+<script>
+var WX_ID = "13922112114"; // 占位，替换为真实微信号
+
+/* ========== PushPlus 微信推送（客户询价 → 你的微信） ==========
+   1. 手机微信扫码关注公众号 "pushplus 推送加"（官网 https://www.pushplus.plus）
+   2. 关注后公众号会发来你的 token（一串字母数字），替换下面的占位符
+   3. 建议：登录 pushplus.plus 后台 → 设置 → 开启"域名白名单"，只允许你的落地页域名调用，防止 token 被盗用
+   ⚠️ 不替换 token 的话，推送不会生效，但表单本身功能不受影响 */
+var PUSHPLUS_TOKEN = "b534d2e356464315b02b10dd113a1016";
+var PUSHPLUS_TEMPLATE = "txt"; // 纯文本推送
+
+function pushToWechat(msg, dest, name, phone){
+  // 客户提交表单后，异步把询价信息推到林总微信
+  if(!PUSHPLUS_TOKEN || PUSHPLUS_TOKEN.indexOf("替换成") === 0){
+    console.warn("[PushPlus] token 未配置，跳过推送。请按上方注释步骤获取 token。");
+    return;
+  }
+  var content = "【新询价提醒】\n" + msg;
+  var title = "🚚 中天物流新询价：" + dest + " | " + name + " " + phone;
+  var url = "https://www.pushplus.plus/send?token=" + encodeURIComponent(PUSHPLUS_TOKEN)
+    + "&title=" + encodeURIComponent(title)
+    + "&content=" + encodeURIComponent(content)
+    + "&template=txt";
+  // no-cors：跨域 GET 简单请求，请求会发出但响应不可读（静态托管无法做后端代理，这是标准做法）
+  try{
+    fetch(url, {method:"GET", mode:"no-cors"}).catch(function(){});
+  }catch(e){}
+}
+function copyWx(){
+  var ok = false;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(WX_ID).then(function(){ ok=true; done(); }, function(){ ok=false; fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var t=document.createElement("textarea"); t.value=WX_ID; document.body.appendChild(t); t.select();
+    try{ document.execCommand("copy"); ok=true; }catch(e){ ok=false; }
+    document.body.removeChild(t); done();
+  }
+  function done(){ alert(ok ? "微信号已复制：" + WX_ID + "，打开微信搜索添加即可" : "复制失败，请手动记下：" + WX_ID); }
+}
+function genMsg(e){
+  e.preventDefault();
+  var name=document.getElementById("f_name").value.trim(),
+      phone=document.getElementById("f_phone").value.trim(),
+      wx=document.getElementById("f_wx").value.trim(),
+      goods=document.getElementById("f_goods").value,
+      dest=document.getElementById("f_dest").value,
+      w=document.getElementById("f_weight").value.trim(),
+      note=document.getElementById("f_note").value.trim();
+  var m="你好，我是"+name+"，想发"+goods+"到"+dest+(w?"，约"+w:"")+"，麻烦报个价。";
+  if(wx) m+="（我的微信："+wx+"）";
+  if(note) m+="（备注："+note+"）";
+  document.getElementById("f_msg").value=m;
+  document.getElementById("f_result").style.display="block";
+  // 同步推送到林总微信（PushPlus），不阻塞表单显示
+  pushToWechat(m, dest, name, phone);
+  return false;
+}
+function copyMsg(){
+  var t=document.getElementById("f_msg"); t.select();
+  try{ document.execCommand("copy"); alert("已复制，粘贴发给微信 "+WX_ID+" 即可"); }catch(e){ alert("请手动复制"); }
+}
+</script>
+</body>
+</html>
