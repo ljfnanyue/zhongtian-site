@@ -323,6 +323,21 @@ function trackEmailClick(){
       if(localStorage.getItem(KEY)) return;
       localStorage.setItem(KEY, "1");
     }catch(e){}
+    // 同时把点击记录写入腾讯云 COS（匿名上传 clicks/ 目录），供日报汇总"今日谁打开了"
+    try{
+      var ts = new Date();
+      var pad = function(n){ return n < 10 ? "0" + n : "" + n; };
+      var fname = "clicks/" + ts.getFullYear() + "-" + pad(ts.getMonth()+1) + "-" + pad(ts.getDate())
+        + "_" + pad(ts.getHours()) + pad(ts.getMinutes()) + pad(ts.getSeconds())
+        + "_" + encodeURIComponent(company).slice(0, 80) + ".json";
+      var rec = { company: company, t: ts.toISOString(), ua: navigator.userAgent.slice(0, 100) };
+      fetch("https://zt-clicks-1410951516.cos.ap-guangzhou.myqcloud.com/" + fname, {
+        method: "PUT",
+        mode: "no-cors",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(rec)
+      }).catch(function(){});
+    }catch(e){}
     fetch(url, {method:"GET", mode:"no-cors"}).catch(function(){});
   }catch(e){}
 }
