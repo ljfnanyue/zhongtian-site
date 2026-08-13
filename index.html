@@ -333,7 +333,6 @@ function trackEmailClick(){
       var rec = { company: company, t: ts.toISOString(), ua: navigator.userAgent.slice(0, 100) };
       fetch("https://zt-clicks-1410951516.cos.ap-guangzhou.myqcloud.com/" + fname, {
         method: "PUT",
-        mode: "no-cors",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(rec)
       }).catch(function(){});
