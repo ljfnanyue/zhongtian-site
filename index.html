@@ -298,6 +298,35 @@ function pushToWechat(msg, dest, name, phone){
     fetch(url, {method:"GET", mode:"no-cors"}).catch(function(){});
   }catch(e){}
 }
+
+/* ========== 邮件点击追踪（开发信链接 → 微信通知） ==========
+   开发信里的落地页链接带参数 ?src=email&c=<公司名>
+   客户点开落地页 → 本段 JS 检测到参数 → 推送一条"谁打开了落地页"到林总微信
+   这样即使客户不回邮件，也能知道谁看了。 */
+function trackEmailClick(){
+  try{
+    var q = location.search || "";
+    if(q.indexOf("src=email") === -1) return;      // 不是从邮件链接来的
+    var m = q.match(/[?&]c=([^&]+)/);
+    if(!m) return;
+    var company = decodeURIComponent(m[1]).replace(/\+/g, " ");
+    if(company.length > 40) company = company.slice(0, 40) + "…";
+    var title = "📬 邮件点击追踪";
+    var content = "客户打开了你发的开发信落地页：\n公司：" + company + "\n时间：" + new Date().toLocaleString("zh-CN") + "\n\n说明：对方没回复但看了链接，可跟进。";
+    var url = "https://www.pushplus.plus/send?token=" + encodeURIComponent(PUSHPLUS_TOKEN)
+      + "&title=" + encodeURIComponent(title)
+      + "&content=" + encodeURIComponent(content)
+      + "&template=txt";
+    // 同一公司只推一次（避免客户多次点开刷屏）：用 localStorage 记已追踪
+    var KEY = "zt_tracked_" + company;
+    try{
+      if(localStorage.getItem(KEY)) return;
+      localStorage.setItem(KEY, "1");
+    }catch(e){}
+    fetch(url, {method:"GET", mode:"no-cors"}).catch(function(){});
+  }catch(e){}
+}
+trackEmailClick();
 function copyWx(){
   var ok = false;
   if(navigator.clipboard && navigator.clipboard.writeText){
